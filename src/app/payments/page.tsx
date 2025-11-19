@@ -72,7 +72,7 @@ export default function PaymentsPage() {
 
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 py-6 space-y-6">
         {/* Plano Atual */}
-        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-gray-800 to-black rounded-3xl shadow-lg p-6 text-white">
           <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-sm opacity-90">Plano Atual</p>
@@ -103,16 +103,16 @@ export default function PaymentsPage() {
                   onClick={() => setSelectedPlan(plan.id)}
                   className={`relative bg-white dark:bg-gray-900 rounded-3xl shadow-lg p-6 cursor-pointer transition-all duration-200 ${
                     isSelected 
-                      ? 'ring-2 ring-blue-500 scale-105' 
+                      ? 'ring-2 ring-gray-900 dark:ring-gray-100 scale-105' 
                       : 'hover:scale-105'
                   } ${
                     plan.popular 
-                      ? 'border-2 border-blue-500' 
+                      ? 'border-2 border-gray-900 dark:border-gray-100' 
                       : 'border border-gray-200 dark:border-gray-800'
                   }`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-bold rounded-full">
                       MAIS POPULAR
                     </div>
                   )}
@@ -126,13 +126,13 @@ export default function PaymentsPage() {
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`p-3 rounded-2xl ${
                       plan.id === 'free' ? 'bg-gray-100 dark:bg-gray-800' :
-                      plan.id === 'premium' ? 'bg-blue-100 dark:bg-blue-950/30' :
-                      'bg-purple-100 dark:bg-purple-950/30'
+                      plan.id === 'premium' ? 'bg-gray-900 dark:bg-gray-100' :
+                      'bg-gray-800 dark:bg-gray-200'
                     }`}>
                       <Icon className={`w-6 h-6 ${
                         plan.id === 'free' ? 'text-gray-600 dark:text-gray-400' :
-                        plan.id === 'premium' ? 'text-blue-600 dark:text-blue-400' :
-                        'text-purple-600 dark:text-purple-400'
+                        plan.id === 'premium' ? 'text-white dark:text-gray-900' :
+                        'text-white dark:text-gray-900'
                       }`} strokeWidth={1.5} />
                     </div>
                     <div>
@@ -158,7 +158,7 @@ export default function PaymentsPage() {
                       isCurrent
                         ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
                         : isSelected
-                        ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white hover:scale-105 shadow-lg'
+                        ? 'bg-gradient-to-br from-gray-800 to-black text-white hover:scale-105 shadow-lg'
                         : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                     }`}
                   >
@@ -210,7 +210,7 @@ export default function PaymentsPage() {
 
         {/* Botão de Ação */}
         {selectedPlan !== user.plan && (
-          <button className="w-full py-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
+          <button className="w-full py-4 bg-gradient-to-br from-gray-800 to-black text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
             Atualizar para {plans.find(p => p.id === selectedPlan)?.name}
           </button>
         )}

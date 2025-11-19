@@ -24,15 +24,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 pb-20">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+      <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Logo */}
-            <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl shadow-lg">
+            <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gray-800 to-black rounded-2xl shadow-lg">
               <Apple className="w-6 h-6 sm:w-7 sm:h-7 text-white" strokeWidth={2.5} fill="white" />
             </div>
             <div>
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">
                 FitBite
               </h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">Olá, {user.name}</p>
@@ -48,7 +48,7 @@ export default function Home() {
 
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 py-6 space-y-6">
         {/* Calorias Restantes */}
-        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-lg p-6 sm:p-8">
+        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800 p-6 sm:p-8">
           <div className="flex flex-col items-center">
             <div className="relative w-48 h-48 sm:w-56 sm:h-56">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
@@ -69,7 +69,7 @@ export default function Home() {
                   stroke="currentColor"
                   strokeWidth="12"
                   strokeDasharray={`${(caloriesPercentage / 100) * circleCircumference} ${circleCircumference}`}
-                  className="text-green-500 transition-all duration-500"
+                  className="text-gray-900 dark:text-gray-100 transition-all duration-500"
                   strokeLinecap="round"
                 />
               </svg>
@@ -90,7 +90,7 @@ export default function Home() {
 
         {/* Macros */}
         <div className="grid grid-cols-3 gap-3 sm:gap-4">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-4 sm:p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 p-4 sm:p-6">
             <div className="flex flex-col items-center">
               <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-4 sm:p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 p-4 sm:p-6">
             <div className="flex flex-col items-center">
               <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -122,7 +122,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-4 sm:p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 p-4 sm:p-6">
             <div className="flex flex-col items-center">
               <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -140,10 +140,10 @@ export default function Home() {
         </div>
 
         {/* Uploads Recentes */}
-        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-lg p-6">
+        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800 p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">Refeições Recentes</h2>
-            <Link href="/scanner" className="text-sm text-green-600 dark:text-green-400 hover:underline font-medium">
+            <Link href="/scanner" className="text-sm text-gray-900 dark:text-gray-100 hover:underline font-medium">
               Ver todas
             </Link>
           </div>
@@ -153,9 +153,9 @@ export default function Home() {
               <Link
                 key={scan.id}
                 href={`/results?id=${scan.id}`}
-                className="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                className="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
               >
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden flex-shrink-0">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
                   <Image
                     src={scan.imageUrl}
                     alt={scan.name}
@@ -184,7 +184,7 @@ export default function Home() {
         {/* Botão Flutuante */}
         <Link
           href="/scanner"
-          className="fixed bottom-24 right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-200 z-40"
+          className="fixed bottom-24 right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-800 to-black rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-200 z-40"
         >
           <Plus className="w-7 h-7 sm:w-8 sm:h-8 text-white" strokeWidth={2} />
         </Link>
